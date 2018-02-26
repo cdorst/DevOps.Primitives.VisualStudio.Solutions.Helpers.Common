@@ -27,6 +27,16 @@ namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
                 version,
                 ProjectLists.Create(sourceProjects.ToArray()),
                 ProjectLists.Create(sourceProjects.ToArray()));
+
+        public static Solution SingleProject(
+            string name,
+            VisualStudioVersionInfo version,
+            SolutionProject project)
+            => new Solution(
+                Guid.NewGuid(),
+                name,
+                version.GetVersionInfo(),
+                project);
     }
 
 
