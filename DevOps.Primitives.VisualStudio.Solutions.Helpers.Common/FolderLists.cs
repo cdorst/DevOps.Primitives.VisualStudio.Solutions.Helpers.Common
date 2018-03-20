@@ -16,6 +16,4 @@ namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
         private static List<SolutionFolderListAssociation> GetListItems(params SolutionFolder[] folders)
             => folders.Select(folder => new SolutionFolderListAssociation(folder)).ToList();
     }
-
-
 }

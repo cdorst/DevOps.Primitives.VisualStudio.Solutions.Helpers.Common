@@ -16,6 +16,4 @@ namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
         public static SolutionFolder Tests(SolutionProjectList projects)
             => Create(TestsFolder, projects);
     }
-
-
 }

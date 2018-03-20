@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using static DevOps.Primitives.VisualStudio.Solutions.Helpers.Common.SolutionGuidGetter;
 
 namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
 {
@@ -12,7 +12,7 @@ namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
             SolutionProjectList sourceProjects,
             SolutionProjectList testsProjects)
             => new Solution(
-                Guid.NewGuid(),
+                GetGuid(name),
                 name,
                 version.GetVersionInfo(),
                 FolderLists.SourceAndTests(sourceProjects, testsProjects));
@@ -33,11 +33,9 @@ namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
             VisualStudioVersionInfo version,
             SolutionProject project)
             => new Solution(
-                Guid.NewGuid(),
+                GetGuid(name),
                 name,
                 version.GetVersionInfo(),
                 project);
     }
-
-
 }

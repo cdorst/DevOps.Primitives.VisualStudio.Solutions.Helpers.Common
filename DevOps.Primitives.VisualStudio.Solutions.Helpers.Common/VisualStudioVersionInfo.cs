@@ -22,6 +22,4 @@
         public string GetVersionInfo()
             => $"Microsoft Visual Studio Solution File, Format Version {SolutionFileFormatVersion}\r\n# {VersionComment}\r\nVisualStudioVersion = {VisualStudioVersion}\r\nMinimumVisualStudioVersion = {MinimumVisualStudioVersion}";
     }
-
-
 }

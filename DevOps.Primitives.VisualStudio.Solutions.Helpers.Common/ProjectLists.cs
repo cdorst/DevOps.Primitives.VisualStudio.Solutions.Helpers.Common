@@ -11,6 +11,4 @@ namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
         private static List<SolutionProjectListAssociation> GetListItems(params SolutionProject[] projects)
             => projects.Select(project => new SolutionProjectListAssociation(project)).ToList();
     }
-
-
 }
