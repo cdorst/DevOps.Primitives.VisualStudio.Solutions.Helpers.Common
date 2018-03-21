@@ -3,7 +3,7 @@ using System.Text;
 
 namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
 {
-    internal static class SolutionGuidGetter
+    public static class SolutionGuidGetter
     {
         public static Guid GetGuid(string name)
         {
