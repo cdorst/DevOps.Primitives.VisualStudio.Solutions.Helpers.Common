@@ -9,6 +9,7 @@ namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
             => Guid.ParseExact(
                 System.Data.HashFunction.xxHash.xxHashFactory.Instance.Create()
                 .ComputeHash(Encoding.UTF8.GetBytes(name))
-                .AsBase64String().Substring(0, 32).ToUpper(), "N");
+                .AsHexString(true)
+                .Substring(0, 32), "N");
     }
 }
