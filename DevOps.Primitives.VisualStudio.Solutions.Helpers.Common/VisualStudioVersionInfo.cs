@@ -1,12 +1,14 @@
-﻿namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
+﻿using static System.String;
+
+namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
 {
     public class VisualStudioVersionInfo
     {
         public VisualStudioVersionInfo(
-            string versionComment,
-            string visualStudioVersion,
-            string solutionFileFormatVersion = "12.00",
-            string minimumVisualStudioVersion = "10.0.40219.1")
+            in string versionComment,
+            in string visualStudioVersion,
+            in string solutionFileFormatVersion = "12.00",
+            in string minimumVisualStudioVersion = "10.0.40219.1")
         {
             MinimumVisualStudioVersion = minimumVisualStudioVersion;
             SolutionFileFormatVersion = solutionFileFormatVersion;
@@ -20,6 +22,6 @@
         public string VisualStudioVersion { get; set; }
 
         public string GetVersionInfo()
-            => $"Microsoft Visual Studio Solution File, Format Version {SolutionFileFormatVersion}\r\n# {VersionComment}\r\nVisualStudioVersion = {VisualStudioVersion}\r\nMinimumVisualStudioVersion = {MinimumVisualStudioVersion}";
+            => Concat("Microsoft Visual Studio Solution File, Format Version ", SolutionFileFormatVersion, "\r\n# ", VersionComment, "\r\nVisualStudioVersion = ", VisualStudioVersion, "\r\nMinimumVisualStudioVersion = ", MinimumVisualStudioVersion);
     }
 }

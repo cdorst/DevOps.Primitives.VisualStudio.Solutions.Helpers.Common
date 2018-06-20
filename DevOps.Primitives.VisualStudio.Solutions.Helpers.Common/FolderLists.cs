@@ -1,19 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using static DevOps.Primitives.VisualStudio.Solutions.Helpers.Common.Folders;
+
 namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
 {
     public static class FolderLists
     {
         public static SolutionFolderList Create(params SolutionFolder[] folders)
-            => new SolutionFolderList(GetListItems(folders));
+            => new SolutionFolderList(GetListItems(in folders));
 
-        public static SolutionFolderList SourceAndTests(SolutionProjectList sourceProjects, SolutionProjectList testsProjects)
+        public static SolutionFolderList SourceAndTests(
+            in SolutionProjectList sourceProjects,
+            in SolutionProjectList testsProjects)
             => Create(
-                Folders.Source(sourceProjects),
-                Folders.Tests(testsProjects));
+                Source(in sourceProjects),
+                Tests(in testsProjects));
 
-        private static List<SolutionFolderListAssociation> GetListItems(params SolutionFolder[] folders)
-            => folders.Select(folder => new SolutionFolderListAssociation(folder)).ToList();
+        private static List<SolutionFolderListAssociation> GetListItems(in SolutionFolder[] folders)
+            => folders.Select(folder => new SolutionFolderListAssociation(in folder)).ToList();
     }
 }

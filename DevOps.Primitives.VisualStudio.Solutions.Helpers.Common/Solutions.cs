@@ -7,35 +7,35 @@ namespace DevOps.Primitives.VisualStudio.Solutions.Helpers.Common
     public static class Solutions
     {
         public static Solution Create(
-            string name,
-            VisualStudioVersionInfo version,
-            SolutionProjectList sourceProjects,
-            SolutionProjectList testsProjects)
+            in string name,
+            in VisualStudioVersionInfo version,
+            in SolutionProjectList sourceProjects,
+            in SolutionProjectList testsProjects)
             => new Solution(
-                GetGuid(name),
-                name,
+                GetGuid(in name),
+                in name,
                 version.GetVersionInfo(),
-                FolderLists.SourceAndTests(sourceProjects, testsProjects));
+                FolderLists.SourceAndTests(in sourceProjects, in testsProjects));
 
         public static Solution Create(
-            string name,
-            VisualStudioVersionInfo version,
-            IEnumerable<SolutionProject> sourceProjects,
-            IEnumerable<SolutionProject> testsProjects)
+            in string name,
+            in VisualStudioVersionInfo version,
+            in IEnumerable<SolutionProject> sourceProjects,
+            in IEnumerable<SolutionProject> testsProjects)
             => Create(
-                name,
-                version,
+                in name,
+                in version,
                 ProjectLists.Create(sourceProjects.ToArray()),
-                ProjectLists.Create(sourceProjects.ToArray()));
+                ProjectLists.Create(testsProjects.ToArray()));
 
         public static Solution SingleProject(
-            string name,
-            VisualStudioVersionInfo version,
-            SolutionProject project)
+            in string name,
+            in VisualStudioVersionInfo version,
+            in SolutionProject project)
             => new Solution(
-                GetGuid(name),
-                name,
+                GetGuid(in name),
+                in name,
                 version.GetVersionInfo(),
-                project);
+                in project);
     }
 }
